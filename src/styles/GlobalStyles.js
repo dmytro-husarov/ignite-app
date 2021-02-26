@@ -22,6 +22,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     width: 100%;
     font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
   }
   h2 {
     font-family: 'Abril Fatface', cursive;

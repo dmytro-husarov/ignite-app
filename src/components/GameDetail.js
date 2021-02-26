@@ -12,7 +12,7 @@ import steam from '../img/steam.svg'
 import starEmpty from '../img/star-empty.png'
 import starFull from '../img/star-full.png'
 import { smallImage } from "../util"
-import { fadeIn } from "../animations/animations"
+import { fadeIn, fadeIn2 } from "../animations/animations"
 
 
 const GameDetail = ({pathId}) => {
@@ -46,7 +46,7 @@ const GameDetail = ({pathId}) => {
     if (elementRef.current === element) {
       setTimeout(() => {
       document.body.style.paddingRight = "0"
-      document.body.style.overflow = "auto"
+      document.body.style.overflowY = "auto"
       }, 500)
       history.push("/")
     }
@@ -58,8 +58,8 @@ const GameDetail = ({pathId}) => {
         <CardShadowStAn
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          exit={{ opacity: 0, transition: { duration: 0.3 } }}
-          transition={{ duration: 0 }}
+          exit={{ opacity: 0, transition: { duration: 0.15 } }}
+          transition={{ duration: 0.2, delayChildren: 0.25 }}
         >
           <DetailContainerSt
             ref={elementRef}
@@ -119,7 +119,7 @@ const GameDetail = ({pathId}) => {
                 initial="hidden"
                 animate="show"
                 exit="exit"
-                variants={fadeIn}
+                variants={fadeIn2}
               >
                 {screen.results.map(src => (
                   <img
@@ -146,7 +146,7 @@ const CardShadowStAn = styled(motion.div)`
   z-index: 1;
   background: rgba(0, 0, 0, 0.7);
   overflow-y: scroll;
-  will-change: opacity;
+  /* will-change: opacity; */
   &::-webkit-scrollbar {
     width: 0;
   }
@@ -170,12 +170,16 @@ const DetailContainerSt = styled.div`
   top: 0;
   left: 0;
   right: 0;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
 `
 const DetailStAn = styled(motion.div)`
+  z-index: 1;
   width: 90%;
   max-width: 900px;
+  height: 100%;
+  min-height: 100vh;
   padding: 1rem 1rem;
   border-radius: 1rem;
   background: white;
@@ -190,6 +194,7 @@ const DetailStAn = styled(motion.div)`
   }
 `
 const StatsStAn = styled(motion.div)`
+  z-index: 1;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -209,6 +214,7 @@ const PlatformsStAn = styled(motion.div)`
   }
 `
 const MediaStAn = styled(motion.div)`
+  z-index: 1;
   margin-top: 1rem;
   img {
     width: 100%;
@@ -218,6 +224,7 @@ const MediaStAn = styled(motion.div)`
   }
 `
 const DescriptionStAn = styled(motion.div)`
+  z-index: 1;
   margin: 1rem 0;
 `
 

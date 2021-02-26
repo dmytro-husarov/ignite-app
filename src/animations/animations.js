@@ -10,9 +10,20 @@ export const fadeIn = {
   },
   exit: {
     opacity: 0,
+  },
+}
+export const fadeIn2 = {
+  hidden: {
+    display: 'none',
+  },
+  show: {
+    display: 'block',
     transition: {
-      duration: 0,
+      delay: 1,
     },
+  },
+  exit: {
+    opacity: 0,
   },
 }
 export const popup = {

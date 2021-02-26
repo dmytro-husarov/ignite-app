@@ -12,7 +12,7 @@ const Game = ({id, name, released, image}) => {
 
   const loadDetailHandler = () => {
     const paddingValue = window.innerWidth - document.body.offsetWidth
-    document.body.style.overflow = "hidden"
+    document.body.style.overflowY = "hidden"
     document.body.style.paddingRight = `${paddingValue}px`
     dispatch(loadDetail(id))
   }
